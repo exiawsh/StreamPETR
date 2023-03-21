@@ -4,17 +4,17 @@
 </div>
 
     
-## Catalog
+## Roadmap
 
 - [ ] StreamPETR code
 - [ ] PETR code
 - [ ] Focal-PETR code
-- [ ] 3D object tracking
 - [ ] Flash Attention
+- [ ] Checkpoints
 - [ ] Batch size 2 training for temporal models
 - [ ] Efficient training in streaming video
-- [ ] Checkpoints
 - [ ] TensorRT Inference
+- [ ] 3D object tracking
 
 <!-- ## Introduction -->
 This repository is an official implementation of StreamPETR.
