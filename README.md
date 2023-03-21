@@ -26,13 +26,13 @@
 <!-- ## Introduction -->
 This repository is an official implementation of StreamPETR.
 ## Main Results
-We provide some results on nuScenes **val set** with pretrained models. These model are trained on 8x 2080ti.
+We provide the results on nuScenes **val set** with R50 backbone. This model is trained on 8x 2080ti.
 | config            | mAP      | NDS     |FPS-Pytorch    |   config |   download |
 |:--------:|:----------:|:---------:|:--------:|:--------:|:-------------:|
 | StreamPETR-R50-704x256   | 45.0%     | 55.0%    | 31.7  | |  
 
 **Notes**: 
-- FPS is measured on NVIDIA RTX3090 GPU with batch size of 1 (containing 6 view images) and fp32 (Pytorch). 
+- FPS is measured on NVIDIA RTX3090 GPU with batch size of 1 (containing 6 view images) and fp32. 
 
 ## Code Release
 We expect to upload the code and pretrained models at mid-April. Please stay tuned. 
