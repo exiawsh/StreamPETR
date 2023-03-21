@@ -9,6 +9,7 @@
 - [ ] StreamPETR code
 - [ ] PETR code
 - [ ] Focal-PETR code
+- [ ] 3D object tracking
 - [ ] Flash Attention
 - [ ] Batch size 2 training for temporal models
 - [ ] Efficient training in streaming video
