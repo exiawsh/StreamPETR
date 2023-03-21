@@ -1,15 +1,14 @@
+![visitors](https://visitor-badge.glitch.me/badge?page_id=megvii-research/PETR)
 <div align="center">
 <h1>StreamPETR</h1>
 <h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
 </div>
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=megvii-research/PETR)
-
-<div align="center">
+<!-- <div align="center">
   <img src="figs/framework.png" width="750"/>
-</div><br/>
+</div><br/> -->
 <div align="center">
-  <img src="figs/fps.png" width="400"/>
+  <img src="figs/fps.png" width="550"/>
 </div><br/>
     
 ## Roadmap
