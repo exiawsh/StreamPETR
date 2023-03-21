@@ -5,10 +5,10 @@
 
 
 <div align="center">
-  <img src="figs/framework.png"/>
+  <img src="figs/framework.png" width="500"/>
 </div><br/>
 <div align="center">
-  <img src="figs/fps.png"/>
+  <img src="figs/fps.png" width="300"/>
 </div><br/>
     
 ## Roadmap
