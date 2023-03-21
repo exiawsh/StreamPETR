@@ -3,12 +3,13 @@
 <h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
 </div>
 
+![visitors](https://visitor-badge.glitch.me/badge?page_id=megvii-research/PETR)
 
 <div align="center">
-  <img src="figs/framework.png" width="500"/>
+  <img src="figs/framework.png" width="750"/>
 </div><br/>
 <div align="center">
-  <img src="figs/fps.png" width="300"/>
+  <img src="figs/fps.png" width="400"/>
 </div><br/>
     
 ## Roadmap
