@@ -25,9 +25,5 @@ We provide some results on nuScenes **val set** with pretrained models. These mo
 **Notes**: 
 - FPS is measured on NVIDIA RTX3090 GPU with batch size of 1 (containing 6 view images).
 
-## Citation
-If you find this project useful for your research, please consider citing: 
-
-```
-## Contact
-If you have any questions, feel free to open an issue or contact us at wangshihao@bit.edu.cn, liuyingfei@megvii.com, or wangtiancai@megvii.com.
+## Code Release
+We expect to uploda the code and pretrained models at mid-April. Please stay tuned. 
