@@ -2,7 +2,9 @@
 <div align="center">
 <h1>StreamPETR</h1>
 <h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
+
 [arXiv Preprint](https://arxiv.org/abs/2303.11926)
+
 </div>
 
 <!-- <div align="center">
@@ -11,7 +13,9 @@
 <div align="center">
   <img src="figs/fps.png" width="550"/>
 </div><br/>
-    
+
+
+
 ## Roadmap
 
 - [ ] StreamPETR code
