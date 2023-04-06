@@ -7,7 +7,7 @@
 
 
 <div align="center">
-  <img src="figs/framework.png" width="550"/>
+  <img src="figs/framework.png" width="800"/>
 </div><br/>
 
 ## Introduction
@@ -30,9 +30,9 @@ Please follow our documentation step by step. For the convenience of developers 
 
 | Model | Setting |Pretrain| Lr Schd | Training Time | NDS| mAP|FPS-pytorch | Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: | :---: | :---: |
-|StreamPETR| V2 - 900q | FCOS3D | 24ep | 13 hours | 57.1 | 48.3 | 12.5 |[config](projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py) |[model](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_vov_flash_800_bs2_seq_24e.pth)/[log](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_vov_flash_800_bs2_seq_24e.log) |
-|StreamPETR| R50 - 900q | ImageNet | 90ep | 36 hours | 53.7 | 43.2 | 26.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_90e.py) |[model](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_r50_flash_704_bs2_seq_90e.pth)/[log](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_vov_flash_800_bs2_seq_24e.log) |
-|StreamPETR| R50 - 428q | [NuImg](https://download.openmmlab.com/mmdetection3d/v0.1.0_models/nuimages_semseg/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim_20201009_124951-40963960.pth) | 60ep | 26 hours | 54.6 |44.9 | 31.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.py)|[model](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.pth)/[log](https://github.com/exiawsh/storage/releases/download/untagged-117fd2925d1b0f8de361/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.log) |
+|StreamPETR| V2 - 900q | FCOS3D | 24ep | 13 hours | 57.1 | 48.3 | 12.5 |[config](projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.log) |
+|StreamPETR| R50 - 900q | ImageNet | 90ep | 36 hours | 53.7 | 43.2 | 26.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_90e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_90e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_90e.log) |
+|StreamPETR| R50 - 428q | [NuImg](https://download.openmmlab.com/mmdetection3d/v0.1.0_models/nuimages_semseg/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim_20201009_124951-40963960.pth) | 60ep | 26 hours | 54.6 |44.9 | 31.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.py)|[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.log) |
 
 
 The detailed results can be found in the training log. For other results on nuScenes val set, please see [Here](docs/training_inference.md).
