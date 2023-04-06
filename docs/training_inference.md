@@ -7,7 +7,7 @@ tools/dist_train.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_se
 ```
 
 **Notes**: 
-- We provide training config both in [sliding window](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs1_8key_2grad_24e.py) and [streaming video](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py). The results reported in our paper is trained with sliding window, while the sliding window training consumes huge GPU memory and training time. So we provide an additional training manner in streaming video (following [SOLOFusion](https://github.com/Divadi/SOLOFusion)). 
+- We provide training config both in [sliding window](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs1_8key_2grad_24e.py) and [streaming video](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py). The results reported in our paper is trained with sliding window, while the sliding window training consumes huge GPU memory and training time. So we provide an additional training manner in streaming video (following [SOLOFusion](https://github.com/Divadi/SOLOFusion)). 
 
 ## Evaluation
 You can evaluate the model following:
@@ -33,7 +33,7 @@ python3 tools/visualize.py
 
 ## Training Recipes
 Here we provide some training tricks, which may further boost the performance of our model. In the further, we will try them and provide the improved baseline of our model.
-1. The training of [streaming video](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py) converges relatively slowly (Sliding window with 60 epoches == streaming video with 90 epoches), but it still **saves 4x training hours**. The results in our paper were early trained using sliding window (8x frame window size).
+1. The training of [streaming video](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py) converges relatively slowly (Sliding window with 60 epoches == streaming video with 90 epoches), but it still **saves 4x training hours**. The results in our paper were early trained using sliding window (8x frame window size).
 
 2. To achieve SOTA results, we have modified the loss weights and Hungarian matching weights for the bounding box regression. Specifically, we change the `x,y weight from 1.0 to 2.0`. We find it works well on sparse query based designs.
 3. The learning rate of backbone has significant impact for small models. For most 2D pretrained (e.g. R50-Nuimage or V2-99-FCOS) and large backbone (e.g. VIT-Base), we suggest setting it to 0.1. `For small IN1k-pretrained models (e.g. R50-IN1k), 0.25 or 0.5 is better`.
