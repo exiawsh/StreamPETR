@@ -201,7 +201,7 @@ optimizer = dict(
     lr=4e-4, # bs 8: 2e-4 || bs 16: 4e-4
     paramwise_cfg=dict(
         custom_keys={
-            'img_backbone': dict(lr_mult=0.1), # change to 0.5 may not converge
+            'img_backbone': dict(lr_mult=0.1), # change to 0.25 may not converge for original PETR
         }),
     weight_decay=0.01)
 
