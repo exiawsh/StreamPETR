@@ -16,7 +16,7 @@ This repository is an official implementation of StreamPETR.
 
 ## Getting Started
 
-Please follow our documentation step by step. For the convenience of developers and researchers, we also add notes for developers to better convey the implementations of PF-Track and accelerate your adaptation of our framework. If you like my documentation and help, please recommend our work to your colleagues and friends.
+Please follow our documentation step by step. If you like our work, please recommend it to your colleagues and friends.
 
 1. [**Environment Setup.**](./docs/setup.md)
 2. [**Data Preparation.**](./docs/data_preparation.md)
