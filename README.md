@@ -27,7 +27,7 @@ Please follow our documentation step by step. For the convenience of developers 
   <img src="figs/fps.png" width="550"/>
 </div><br/>
 
-
+## Results on NuScenes Val Set.
 | Model | Setting |Pretrain| Lr Schd | Training Time | NDS| mAP|FPS-pytorch | Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: | :---: | :---: |
 |StreamPETR| V2 - 900q | FCOS3D | 24ep | 13 hours | 57.1 | 48.3 | 12.5 |[config](projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.log) |
@@ -36,14 +36,16 @@ Please follow our documentation step by step. For the convenience of developers 
 
 
 The detailed results can be found in the training log. For other results on nuScenes val set, please see [Here](docs/training_inference.md).
+**Notes**: 
+- FPS is measured on NVIDIA RTX 3090 GPU with batch size of 1 (containing 6 view images) and FP32. 
+- The training time is measured with 8x 2080ti GPUs.
+
 ## Results on NuScenes Test Set.
 | Model | Setting |Pretrain|NDS| mAP|
 | :---: | :---: | :---: | :---: | :---:|
 |StreamPETR| V2-99 - 900q | DD3D | 63.6| 55.0 |
 
-**Notes**: 
-- FPS is measured on NVIDIA RTX 3090 GPU with batch size of 1 (containing 6 view images) and FP32. 
-- The training time is measured with 8x 2080ti GPUs.
+
 
 ## Currently Supported Features
 

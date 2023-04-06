@@ -52,6 +52,6 @@ norm_eval=False`.
 ## More Results
 | Model | Setting |Pretrain| Lr Schd | NDS| mAP| Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: |
-|PETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](projects/configs/PETRv1/petrv1_r50_flash_704_24e.py) |TBA|
-|FocalPETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](projects/configs/PETRv1/focal_petrv1_r50_flash_704_24e.py) |TBA |
-|StreamPETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py) |TBA |
+|PETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](../projects/configs/PETRv1/petrv1_r50_flash_704_24e.py) |TBA|
+|FocalPETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](../projects/configs/PETRv1/focal_petrv1_r50_flash_704_24e.py) |TBA |
+|StreamPETR| R50 - 900q | ImageNet | 24ep | TBA | TBA |[config](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py) |TBA |
