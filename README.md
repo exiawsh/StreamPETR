@@ -30,7 +30,7 @@ Please follow our documentation step by step. For the convenience of developers 
 ## Results on NuScenes Val Set.
 | Model | Setting |Pretrain| Lr Schd | Training Time | NDS| mAP|FPS-pytorch | Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: | :---: | :---: |
-|StreamPETR| V2 - 900q | [FCOS3D](https://github.com/exiawsh/storage/releases/download/v1.0/fcos3d_vovnet_imgbackbone-remapped.pth) | 24ep | 13 hours | 57.1 | 48.3 | 12.5 |[config](projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.log) |
+|StreamPETR| V2-99 - 900q | [FCOS3D](https://github.com/exiawsh/storage/releases/download/v1.0/fcos3d_vovnet_imgbackbone-remapped.pth) | 24ep | 13 hours | 57.1 | 48.3 | 12.5 |[config](projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_vov_flash_800_bs2_seq_24e.log) |
 |StreamPETR| R50 - 900q | ImageNet | 90ep | 36 hours | 53.7 | 43.2 | 26.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_90e.py) |[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_90e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_90e.log) |
 |StreamPETR| R50 - 428q | [NuImg](https://download.openmmlab.com/mmdetection3d/v0.1.0_models/nuimages_semseg/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim/cascade_mask_rcnn_r50_fpn_coco-20e_20e_nuim_20201009_124951-40963960.pth) | 60ep | 26 hours | 54.6 |44.9 | 31.7 |[config](projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.py)|[model](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.pth)/[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_428q_nui_60e.log) |
 
@@ -43,7 +43,7 @@ The detailed results can be found in the training log. For other results on nuSc
 ## Results on NuScenes Test Set.
 | Model | Setting |Pretrain|NDS| mAP|
 | :---: | :---: | :---: | :---: | :---:|
-|StreamPETR| V2-99 - 900q | DD3D | 63.6| 55.0 |
+|StreamPETR| V2-99 - 900q | [DD3D](https://github.com/exiawsh/storage/releases/download/v1.0/dd3d_det_final.pth) | 63.6| 55.0 |
 
 
 
