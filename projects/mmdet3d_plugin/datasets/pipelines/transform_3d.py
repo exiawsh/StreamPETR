@@ -137,7 +137,7 @@ class ResizeCropFlipRotImage():
                 flip=flip,
                 rotate=rotate,
             )
-            if self.training and self.with_2d:
+            if self.training and self.with_2d: # sync_2d bbox labels
                 gt_bboxes = results['gt_bboxes'][i]
                 centers2d = results['centers2d'][i]
                 gt_labels = results['gt_labels'][i]
@@ -209,6 +209,7 @@ class ResizeCropFlipRotImage():
 
 
     def _filter_invisible(self, bboxes, centers2d, gt_labels, depths):
+        # filter invisible 2d bboxes
         assert len(bboxes) == len(centers2d) == len(gt_labels) == len(depths)
         fH, fW = self.data_aug_conf["final_dim"]
         indices_maps = np.zeros((fH,fW))

@@ -140,6 +140,7 @@ class FocalHead(AnchorFreeHead):
         bs, n, c, h, w= src.shape
         num_tokens = n*h*w
         
+        # focal sampling
         if self.training:
             if self.use_hybrid_tokens:
                 sample_ratio = random.uniform(0.2, 1.0)

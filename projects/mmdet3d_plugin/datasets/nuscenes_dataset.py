@@ -97,7 +97,7 @@ class CustomNuScenesDataset(NuScenesDataset):
             i = max(0, i)
             input_dict = self.get_data_info(i)
             
-            if not self.seq_mode:
+            if not self.seq_mode: # for sliding window only
                 if input_dict['scene_token'] != prev_scene_token:
                     input_dict.update(dict(prev_exists=False))
                     prev_scene_token = input_dict['scene_token']
@@ -173,7 +173,7 @@ class CustomNuScenesDataset(NuScenesDataset):
         l2e_translation = info['lidar2ego_translation']
         e2g_matrix = convert_egopose_to_matrix_numpy(e2g_rotation, e2g_translation)
         l2e_matrix = convert_egopose_to_matrix_numpy(l2e_rotation, l2e_translation)
-        ego_pose =  e2g_matrix @ l2e_matrix
+        ego_pose =  e2g_matrix @ l2e_matrix # lidar2global
 
         ego_pose_inv = invert_matrix_egopose_numpy(ego_pose)
         input_dict = dict(
@@ -212,10 +212,11 @@ class CustomNuScenesDataset(NuScenesDataset):
                 extrinsics.append(lidar2cam_rt)
                 lidar2img_rts.append(lidar2img_rt)
                 
-            if not self.test_mode:
+            if not self.test_mode: # for seq_mode
                 prev_exists  = not (index == 0 or self.flag[index - 1] != self.flag[index])
             else:
                 prev_exists = None
+
             input_dict.update(
                 dict(
                     img_timestamp=img_timestamp,

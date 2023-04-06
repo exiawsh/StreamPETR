@@ -458,6 +458,8 @@ class PETRHeadDN(AnchorFreeHead):
         pos_embed, cone = self.position_embeding(data, memory_center, topk_indexes, img_metas)
 
         memory = self.memory_embed(memory)
+
+        # spatial_alignment in focal petr
         memory = self.spatial_alignment(memory, cone)
         pos_embed = self.featurized_pe(pos_embed, memory)
 

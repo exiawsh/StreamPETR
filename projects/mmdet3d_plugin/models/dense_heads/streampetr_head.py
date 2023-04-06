@@ -267,7 +267,8 @@ class StreamPETRHead(AnchorFreeHead):
                 nn.ReLU(),
                 nn.Linear(self.embed_dims, self.embed_dims),
             )
-
+        
+        # can be replaced with MLN
         self.featurized_pe = SELayer_Linear(self.embed_dims)
 
         self.reference_points = nn.Embedding(self.num_query, 3)
@@ -288,6 +289,7 @@ class StreamPETRHead(AnchorFreeHead):
             nn.LayerNorm(self.embed_dims)
         )
 
+        # encoding ego pose
         if self.with_ego_pos:
             self.ego_pose_pe = MLN(180)
             self.ego_pose_memory = MLN(180)
@@ -317,6 +319,7 @@ class StreamPETRHead(AnchorFreeHead):
     def pre_update_memory(self, data):
         x = data['prev_exists']
         B = x.size(0)
+        # refresh the memory when the scene changes
         if self.memory_embedding is None:
             self.memory_embedding = x.new_zeros(B, self.memory_len, self.embed_dims)
             self.memory_reference_point = x.new_zeros(B, self.memory_len, 3)
@@ -332,7 +335,8 @@ class StreamPETRHead(AnchorFreeHead):
             self.memory_embedding = memory_refresh(self.memory_embedding[:, :self.memory_len], x)
             self.memory_egopose = memory_refresh(self.memory_egopose[:, :self.memory_len], x)
             self.memory_velo = memory_refresh(self.memory_velo[:, :self.memory_len], x)
-            
+        
+        # for the first frame, padding pseudo_reference_points (non-learnable)
         if self.num_propagated > 0:
             pseudo_reference_points = self.pseudo_reference_points.weight * (self.pc_range[3:6] - self.pc_range[0:3]) + self.pc_range[0:3]
             self.memory_reference_point[:, :self.num_propagated]  = self.memory_reference_point[:, :self.num_propagated] + (1 - x).view(B, 1, 1) * pseudo_reference_points
@@ -352,12 +356,14 @@ class StreamPETRHead(AnchorFreeHead):
             rec_score = all_cls_scores[-1].sigmoid().topk(1, dim=-1).values[..., 0:1]
             rec_timestamp = torch.zeros_like(rec_score, dtype=torch.float64)
         
+        # topk proposals
         _, topk_indexes = torch.topk(rec_score, self.topk_proposals, dim=1)
         rec_timestamp = topk_gather(rec_timestamp, topk_indexes)
         rec_reference_points = topk_gather(rec_reference_points, topk_indexes).detach()
         rec_memory = topk_gather(rec_memory, topk_indexes).detach()
         rec_ego_pose = topk_gather(rec_ego_pose, topk_indexes)
         rec_velo = topk_gather(rec_velo, topk_indexes).detach()
+
         self.memory_embedding = torch.cat([rec_memory, self.memory_embedding], dim=1)
         self.memory_timestamp = torch.cat([rec_timestamp, self.memory_timestamp], dim=1)
         self.memory_egopose= torch.cat([rec_ego_pose, self.memory_egopose], dim=1)
@@ -405,6 +411,8 @@ class StreamPETRHead(AnchorFreeHead):
         pos_embed  = inverse_sigmoid(coords3d)
         coords_position_embeding = self.position_encoder(pos_embed)
         intrinsic = topk_gather(intrinsic, topk_indexes)
+
+        # for spatial alignment in focal petr
         cone = torch.cat([intrinsic, coords3d[..., -3:], coords3d[..., -90:-87]], dim=-1)
 
         return coords_position_embeding, cone
@@ -500,7 +508,8 @@ class StreamPETRHead(AnchorFreeHead):
                 else:
                     attn_mask[single_pad * i:single_pad * (i + 1), single_pad * (i + 1):pad_size] = True
                     attn_mask[single_pad * i:single_pad * (i + 1), :single_pad * i] = True
-
+             
+            # update dn mask for temporal modeling
             query_size = pad_size + self.num_query + self.num_propagated
             tgt_size = pad_size + self.num_query + self.memory_len
             temporal_attn_mask = torch.ones(query_size, tgt_size).to(reference_points.device) < 0
@@ -581,6 +590,8 @@ class StreamPETRHead(AnchorFreeHead):
         pos_embed, cone = self.position_embeding(data, memory_center, topk_indexes, img_metas)
 
         memory = self.memory_embed(memory)
+
+        # spatial_alignment in focal petr
         memory = self.spatial_alignment(memory, cone)
         pos_embed = self.featurized_pe(pos_embed, memory)
 
@@ -592,6 +603,7 @@ class StreamPETRHead(AnchorFreeHead):
         # prepare for the tgt and query_pos using mln.
         tgt, query_pos, reference_points, temp_memory, temp_pos, rec_ego_pose = self.temporal_alignment(query_pos, tgt, reference_points)
 
+        # transformer here is a little different from PETR
         outs_dec, _ = self.transformer(memory, tgt, query_pos, pos_embed, attn_mask, temp_memory, temp_pos)
 
         outs_dec = torch.nan_to_num(outs_dec)

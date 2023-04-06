@@ -18,8 +18,8 @@ class_names = [
     'motorcycle', 'bicycle', 'pedestrian', 'traffic_cone'
 ]
 
-queue_length = 8
-num_frame_losses = 2
+queue_length = 8 # sliding window training, set seq_mode = False in dataset
+num_frame_losses = 2 # faster convergence
 collect_keys=['lidar2img', 'intrinsics', 'extrinsics','timestamp', 'img_timestamp', 'ego_pose', 'ego_pose_inv']
 input_modality = dict(
     use_lidar=False,
