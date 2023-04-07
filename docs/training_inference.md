@@ -24,11 +24,12 @@ python tools/benchmark.py projects/configs/test_speed/stream_petr_r50_704_bs2_se
 ## Visualize
 You can generate the reault json following:
 ```bash
-./tools/dist_test.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/latest.pth 8 --format-only --eval-options 'jsonfile_prefix=work_dirs/pp-nus/results_eval'
+./tools/dist_test.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/latest.pth 8 --format-only
 ```
 You can visualize the 3D object detection following:
 ```bash
 python3 tools/visualize.py
+# please change the results_nusc.json path in the python file
 ```
 
 ## Training Recipes
