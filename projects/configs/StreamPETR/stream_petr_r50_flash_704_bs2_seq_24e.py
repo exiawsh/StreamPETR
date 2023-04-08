@@ -184,8 +184,7 @@ train_pipeline = [
              meta_keys=('filename', 'ori_shape', 'img_shape', 'pad_shape', 'scale_factor', 'flip', 'box_mode_3d', 'box_type_3d', 'img_norm_cfg', 'scene_token', 'gt_bboxes_3d','gt_labels_3d'))
 ]
 test_pipeline = [
-    dict(type='LoadMultiViewImageFromNori', to_float32=True,
-         nori_lists=['s3://yjj/datasets/nuscenes_img_train.nori.list', 's3://yjj/datasets/nuscenes_img_val.nori.list'], data_prefix='./data/nuscenes'),
+    dict(type='LoadMultiViewImageFromFiles', to_float32=True),
     dict(type='ResizeCropFlipRotImage', data_aug_conf = ida_aug_conf, training=False),
     dict(type='NormalizeMultiviewImage', **img_norm_cfg),
     dict(type='PadMultiViewImage', size_divisor=32),
