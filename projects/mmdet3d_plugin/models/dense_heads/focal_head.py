@@ -50,6 +50,7 @@ class FocalHead(AnchorFreeHead):
     def __init__(self,
                  num_classes,
                  in_channels=256,
+                 embed_dims=256,
                  stride=16,
                  use_hybrid_tokens=False,
                  train_ratio=1.0,
@@ -93,6 +94,7 @@ class FocalHead(AnchorFreeHead):
 
         self.num_classes = num_classes
         self.in_channels = in_channels
+        self.embed_dims = embed_dims
 
         self.train_cfg = train_cfg
         self.test_cfg = test_cfg
@@ -118,18 +120,18 @@ class FocalHead(AnchorFreeHead):
         self.cls = nn.Conv2d(self.in_channels, self.num_classes, kernel_size=1)
 
         self.shared_reg= nn.Sequential(
-                                 nn.Conv2d(self.in_channels, self.in_channels, kernel_size=(3, 3), padding=1),
-                                 nn.GroupNorm(32, num_channels=self.in_channels),
+                                 nn.Conv2d(self.in_channels, self.embed_dims, kernel_size=(3, 3), padding=1),
+                                 nn.GroupNorm(32, num_channels=self.embed_dims),
                                  nn.ReLU(),)
 
         self.shared_cls = nn.Sequential(
-                                 nn.Conv2d(self.in_channels, self.in_channels, kernel_size=(3, 3), padding=1),
-                                 nn.GroupNorm(32, num_channels=self.in_channels),
+                                 nn.Conv2d(self.in_channels, self.embed_dims, kernel_size=(3, 3), padding=1),
+                                 nn.GroupNorm(32, num_channels=self.embed_dims),
                                  nn.ReLU(),)
 
-        self.centerness = nn.Conv2d(self.in_channels, 1, kernel_size=1)
-        self.ltrb = nn.Conv2d(self.in_channels, 4, kernel_size=1)
-        self.center2d = nn.Conv2d(self.in_channels, 2, kernel_size=1)
+        self.centerness = nn.Conv2d(self.embed_dims, 1, kernel_size=1)
+        self.ltrb = nn.Conv2d(self.embed_dims, 4, kernel_size=1)
+        self.center2d = nn.Conv2d(self.embed_dims, 2, kernel_size=1)
 
         bias_init = bias_init_with_prob(0.01)
         nn.init.constant_(self.cls.bias, bias_init)
