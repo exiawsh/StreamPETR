@@ -263,7 +263,7 @@ class StreamPETRHead(AnchorFreeHead):
             )
 
         self.memory_embed = nn.Sequential(
-                nn.Linear(self.embed_dims, self.embed_dims),
+                nn.Linear(self.in_channels, self.embed_dims),
                 nn.ReLU(),
                 nn.Linear(self.embed_dims, self.embed_dims),
             )
