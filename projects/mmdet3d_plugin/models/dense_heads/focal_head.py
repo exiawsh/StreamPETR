@@ -117,7 +117,7 @@ class FocalHead(AnchorFreeHead):
         self._init_layers()
 
     def _init_layers(self):
-        self.cls = nn.Conv2d(self.in_channels, self.num_classes, kernel_size=1)
+        self.cls = nn.Conv2d(self.embed_dims, self.num_classes, kernel_size=1)
 
         self.shared_reg= nn.Sequential(
                                  nn.Conv2d(self.in_channels, self.embed_dims, kernel_size=(3, 3), padding=1),
