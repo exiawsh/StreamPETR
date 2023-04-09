@@ -37,7 +37,7 @@ Please follow our documentation step by step. If you like our work, please recom
 
 The detailed results can be found in the training log. For other results on nuScenes val set, please see [Here](docs/training_inference.md).
 **Notes**: 
-- FPS is measured on NVIDIA RTX 3090 GPU with batch size of 1 (containing 6 view images) and FP32. 
+- FPS is measured on NVIDIA RTX 3090 GPU with batch size of 1 (containing 6 view images, without using flash attention) and FP32. 
 - The training time is measured with 8x 2080ti GPUs.
 
 ## Results on NuScenes Test Set.
