@@ -53,6 +53,6 @@ norm_eval=False`.
 ## More Results
 | Model | Setting |Pretrain| Lr Schd | NDS| mAP| Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: |
-|PETR| R50 - 900q | ImageNet | 24ep | 35.8 | 28.0 |[config](../projects/configs/PETRv1/petrv1_r50_flash_704_24e.py) |[log](https://github.com/exiawsh/storage/releases/download/v1.0/petrv1_r50_flash_704_24e.log)|
+|PETR| R50 - 900q | ImageNet | 24ep | 34.9 | 30.9 |[config](../projects/configs/PETRv1/petrv1_r50_flash_704_24e.py) |[log](https://github.com/exiawsh/storage/releases/download/v1.0/petrv1_r50_flash_704_24e.log)|
 |FocalPETR| R50 - 900q | ImageNet | 24ep | 36.6| 33.1 |[config](../projects/configs/PETRv1/focal_petrv1_r50_flash_704_24e.py) |[log](https://github.com/exiawsh/storage/releases/download/v1.0/focal_petrv1_r50_flash_704_24e.log)|
 |StreamPETR| R50 - 900q | ImageNet | 24ep | 47.6 | 37.5 |[config](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py) |[log](https://github.com/exiawsh/storage/releases/download/v1.0/stream_petr_r50_flash_704_bs2_seq_24e.log)|
