@@ -151,7 +151,7 @@ class PETRHeadDN(AnchorFreeHead):
             self.assigner = build_assigner(assigner)
             # DETR sampling=False, so use PseudoSampler
             sampler_cfg = dict(type='PseudoSampler')
-            self.spatial_alignmentmpler = build_sampler(sampler_cfg, context=self)
+            self.sampler = build_sampler(sampler_cfg, context=self)
 
         self.num_query = num_query
         self.num_classes = num_classes
@@ -566,7 +566,7 @@ class PETRHeadDN(AnchorFreeHead):
 
         assign_result = self.assigner.assign(bbox_pred, cls_score, gt_bboxes,
                                                 gt_labels, gt_bboxes_ignore, self.match_costs, False)
-        sampling_result = self.spatial_alignmentmpler.sample(assign_result, bbox_pred,
+        sampling_result = self.sampler.sample(assign_result, bbox_pred,
                                               gt_bboxes)
         pos_inds = sampling_result.pos_inds
         neg_inds = sampling_result.neg_inds
