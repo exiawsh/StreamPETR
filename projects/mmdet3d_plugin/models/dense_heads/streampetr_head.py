@@ -713,17 +713,18 @@ class StreamPETRHead(AnchorFreeHead):
         labels = gt_bboxes.new_full((num_bboxes, ),
                                     self.num_classes,
                                     dtype=torch.long)
-        labels[pos_inds] = gt_labels[sampling_result.pos_assigned_gt_inds]
         label_weights = gt_bboxes.new_ones(num_bboxes)
 
         # bbox targets
         code_size = gt_bboxes.size(1)
         bbox_targets = torch.zeros_like(bbox_pred)[..., :code_size]
         bbox_weights = torch.zeros_like(bbox_pred)
-        bbox_weights[pos_inds] = 1.0
         # print(gt_bboxes.size(), bbox_pred.size())
         # DETR
-        bbox_targets[pos_inds] = sampling_result.pos_gt_bboxes
+        if sampling_result.num_gts > 0:
+            bbox_targets[pos_inds] = sampling_result.pos_gt_bboxes
+            bbox_weights[pos_inds] = 1.0
+            labels[pos_inds] = gt_labels[sampling_result.pos_assigned_gt_inds]
         return (labels, label_weights, bbox_targets, bbox_weights, 
                 pos_inds, neg_inds)
 
@@ -995,6 +996,20 @@ class StreamPETRHead(AnchorFreeHead):
                                             dn_losses_bbox[:-1]):
                 loss_dict[f'd{num_dec_layer}.dn_loss_cls'] = loss_cls_i
                 loss_dict[f'd{num_dec_layer}.dn_loss_bbox'] = loss_bbox_i
+                num_dec_layer += 1
+                
+        elif self.with_dn:
+            dn_losses_cls, dn_losses_bbox = multi_apply(
+                self.loss_single, all_cls_scores, all_bbox_preds,
+                all_gt_bboxes_list, all_gt_labels_list, 
+                all_gt_bboxes_ignore_list)
+            loss_dict['dn_loss_cls'] = dn_losses_cls[-1].detach()
+            loss_dict['dn_loss_bbox'] = dn_losses_bbox[-1].detach()     
+            num_dec_layer = 0
+            for loss_cls_i, loss_bbox_i in zip(dn_losses_cls[:-1],
+                                            dn_losses_bbox[:-1]):
+                loss_dict[f'd{num_dec_layer}.dn_loss_cls'] = loss_cls_i.detach()     
+                loss_dict[f'd{num_dec_layer}.dn_loss_bbox'] = loss_bbox_i.detach()     
                 num_dec_layer += 1
 
         return loss_dict
