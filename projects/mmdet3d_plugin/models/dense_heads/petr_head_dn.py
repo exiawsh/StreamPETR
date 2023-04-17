@@ -344,7 +344,6 @@ class PETRHeadDN(AnchorFreeHead):
             known_indice = torch.nonzero(unmask_label + unmask_bbox)
             known_indice = known_indice.view(-1)
             # add noise
-            groups = min(self.scalar, self.num_query // max(known_num))
             known_indice = known_indice.repeat(self.scalar, 1).view(-1)
             known_labels = labels.repeat(self.scalar, 1).view(-1).long().to(reference_points.device)
             known_bid = batch_idx.repeat(self.scalar, 1).view(-1)
