@@ -10,9 +10,14 @@ tools/dist_train.sh projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_se
 - We provide training config both in [sliding window](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs1_8key_2grad_24e.py) and [streaming video](../projects/configs/StreamPETR/stream_petr_r50_flash_704_bs2_seq_24e.py). The results reported in our paper is trained with sliding window, while the sliding window training consumes huge GPU memory and training time. So we provide an additional training manner in streaming video (following [SOLOFusion](https://github.com/Divadi/SOLOFusion)). 
 
 ## Evaluation
-You can evaluate the model following:
+You can evaluate the detection model following:
 ```bash
 tools/dist_test.sh projects/configs/StreamPETR/stream_petr_vov_flash_800_bs2_seq_24e.py work_dirs/stream_petr_vov_flash_800_bs2_seq_24e/latest.pth 8 --eval bbox
+```
+
+You can evaluate the tracking model following:
+```bash
+python nusc_tracking/pub_test --version v1.0-trainval --checkpoint {PATH_RESULTS.JSON} --data_root {PATH_NUSCENES}
 ```
 
 ## Estimate the inference speed of StreamPETR
@@ -50,7 +55,7 @@ norm_eval=False`.
           num_heads=8,
           dropout=0.1,
           fp16=True,)`.
-## More Results
+## Detection Results
 | Model | Setting |Pretrain| Lr Schd | NDS| mAP| Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: |
 |PETR| R50 - 900q | ImageNet | 24ep | 34.9 | 30.9 |[config](../projects/configs/PETRv1/petrv1_r50_flash_704_24e.py) |[log](https://github.com/exiawsh/storage/releases/download/v1.0/petrv1_r50_flash_704_24e.log)|

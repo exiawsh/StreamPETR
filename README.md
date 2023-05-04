@@ -50,12 +50,12 @@ The detailed results can be found in the training log. For other results on nuSc
 ## Currently Supported Features
 
 - [x] StreamPETR code (also including PETR and Focal-PETR)
-- [x] Flash Attention
+- [x] Flash attention
 - [x] Checkpoints
 - [x] Sliding window training
 - [x] Efficient training in streaming video
-- [ ] TensorRT Inference
-- [ ] 3D object tracking
+- [ ] TensorRT inference
+- [x] 3D object tracking
 
 ## Acknowledgements
 
