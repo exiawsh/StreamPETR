@@ -1,5 +1,6 @@
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2303.11926)
-![visitors](https://visitor-badge.glitch.me/badge?page_id=megvii-research/PETR)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-multi-object-tracking-on-nuscenes-camera)](https://paperswithcode.com/sota/3d-multi-object-tracking-on-nuscenes-camera?p=exploring-object-centric-temporal-modeling)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-object-detection-on-nuscenes-camera-only)](https://paperswithcode.com/sota/3d-object-detection-on-nuscenes-camera-only?p=exploring-object-centric-temporal-modeling)
 <div align="center">
 <h1>StreamPETR</h1>
 <h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
@@ -13,6 +14,10 @@
 ## Introduction
 
 This repository is an official implementation of StreamPETR.
+
+## News
+
+- [2023/05/03] StreamPETR-Large is the first online multi-view method that achieves comparable performance (62.0 mAP, 67.6 NDS and 65.3 AMOTA) with the baseline of lidar-based method. 
 
 ## Getting Started
 
@@ -41,10 +46,10 @@ The detailed results can be found in the training log. For other results on nuSc
 - The training time is measured with 8x 2080ti GPUs.
 
 ## Results on NuScenes Test Set.
-| Model | Setting |Pretrain|NDS| mAP|
-| :---: | :---: | :---: | :---: | :---:|
-|StreamPETR| V2-99 - 900q | [DD3D](https://github.com/exiawsh/storage/releases/download/v1.0/dd3d_det_final.pth) | 63.6| 55.0 |
-
+| Model | Setting |Pretrain|NDS| mAP|AMOTA|AMOTP|
+| :---: | :---: | :---: | :---: | :---:| :---: | :---:|
+|StreamPETR| V2-99 - 900q | [DD3D](https://github.com/exiawsh/storage/releases/download/v1.0/dd3d_det_final.pth) | 63.6| 55.0 | - | - |
+|StreamPETR| ViT-Large-900q | - | 67.6| 62.0 | 65.3| 87.6 |
 
 
 ## Currently Supported Features
