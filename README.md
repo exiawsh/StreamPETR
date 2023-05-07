@@ -1,13 +1,11 @@
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2303.11926)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-multi-object-tracking-on-nuscenes-camera)](https://paperswithcode.com/sota/3d-multi-object-tracking-on-nuscenes-camera?p=exploring-object-centric-temporal-modeling)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-object-detection-on-nuscenes-camera-only)](https://paperswithcode.com/sota/3d-object-detection-on-nuscenes-camera-only?p=exploring-object-centric-temporal-modeling)
 <div align="center">
 <h1>StreamPETR</h1>
 <h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
 </div>
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-multi-object-tracking-on-nuscenes-camera)](https://paperswithcode.com/sota/3d-multi-object-tracking-on-nuscenes-camera?p=exploring-object-centric-temporal-modeling)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-object-detection-on-nuscenes-camera-only)](https://paperswithcode.com/sota/3d-object-detection-on-nuscenes-camera-only?p=exploring-object-centric-temporal-modeling)
+[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2303.11926)
 
 <div align="center">
   <img src="figs/framework.png" width="800"/>
