@@ -55,6 +55,15 @@ norm_eval=False`.
           num_heads=8,
           dropout=0.1,
           fp16=True,)`.
+11. Adjuting the learning rate:
+
+| Num_gpus * Batch_size | Learning Rate|
+| :---: | :---: |
+|8| 2e-4 |
+|16| 4e-4 |
+|32| 6e-4 |
+|64| TBA |
+
 ## Detection Results
 | Model | Setting |Pretrain| Lr Schd | NDS| mAP| Config | Download |
 | :---: | :---: | :---: | :---: | :---:|:---:| :---: | :---: |
