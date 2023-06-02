@@ -33,20 +33,20 @@ pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f ht
 pip install flash-attn==0.2.2
 ```
 
-**d. Install mmdet3d.**
+**d. Clone StreamPETR.**
+```
+git clone https://github.com/exiawsh/StreamPETR
+```
+
+**e. Install mmdet3d.**
 ```shell
 pip install mmcv-full==1.6.0
 pip install mmdet==2.28.2
 pip install mmsegmentation==0.30.0
+cd ./StreamPETR
 git clone https://github.com/open-mmlab/mmdetection3d.git
 cd mmdetection3d
 git checkout v1.0.0rc6 
 pip install -e .
 # following https://mmdetection3d.readthedocs.io/en/latest/getting_started.html#installation
-```
-
-
-**e. Clone StreamPETR.**
-```
-git clone https://github.com/exiawsh/StreamPETR
 ```

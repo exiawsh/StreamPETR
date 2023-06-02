@@ -41,6 +41,6 @@ StreamPETR
 │   │   ├── sweeps/
 │   │   ├── v1.0-test/
 |   |   ├── v1.0-trainval/
-|   |   ├── nuscenes2d_infos_temporal_train.pkl
-|   |   ├── nuscenes2d_infos_temporal_val.pkl
+|   |   ├── nuscenes2d_temporal_infos_train.pkl
+|   |   ├── nuscenes2d_temporal_infos_val.pkl
 ```
