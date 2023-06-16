@@ -48,5 +48,4 @@ git clone https://github.com/open-mmlab/mmdetection3d.git
 cd mmdetection3d
 git checkout v1.0.0rc6 
 pip install -e .
-# following https://mmdetection3d.readthedocs.io/en/latest/getting_started.html#installation
 ```
