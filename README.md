@@ -1,6 +1,6 @@
 <div align="center">
 <h1>StreamPETR</h1>
-<h3>Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
+<h3>[ICCV2023] Exploring Object-Centric Temporal Modeling for Efficient Multi-View 3D Object Detection</h3>
 </div>
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/exploring-object-centric-temporal-modeling/3d-multi-object-tracking-on-nuscenes-camera-1)](https://paperswithcode.com/sota/3d-multi-object-tracking-on-nuscenes-camera-1?p=exploring-object-centric-temporal-modeling)
