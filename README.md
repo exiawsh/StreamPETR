@@ -16,7 +16,7 @@
 This repository is an official implementation of StreamPETR.
 
 ## News
-
+- [2023/07/14] StreamPETR is accepted by ICCV 2023.
 - [2023/05/03] StreamPETR-Large is the first online multi-view method that achieves comparable performance (62.0 mAP, 67.6 NDS and 65.3 AMOTA) with the baseline of lidar-based method. 
 
 ## Getting Started
