@@ -56,6 +56,7 @@ The detailed results can be found in the training log. For other results on nuSc
 
 - [x] StreamPETR code (also including PETR and Focal-PETR)
 - [x] Flash attention
+- [ ] Deformable attention (RepDETR3D)
 - [x] Checkpoints
 - [x] Sliding window training
 - [x] Efficient training in streaming video
