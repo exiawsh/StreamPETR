@@ -45,6 +45,7 @@ The detailed results can be found in the training log. For other results on nuSc
 **Notes**: 
 - FPS is measured on NVIDIA RTX 3090 GPU with batch size of 1 (containing 6 view images, without using flash attention) and FP32. 
 - The training time is measured with 8x 2080ti GPUs.
+- RepDETR3D uses deformable attention, which is inspired by DETR3D and Sparse4D.
 
 ## Results on NuScenes Test Set.
 | Model | Setting |Pretrain|NDS| mAP|AMOTA|AMOTP|
@@ -68,7 +69,7 @@ The detailed results can be found in the training log. For other results on nuSc
 
 We thank these great works and open-source codebases:
 
-* 3D Detection. [MMDetection3d](https://github.com/open-mmlab/mmdetection3d), [DETR3D](https://github.com/WangYueFt/detr3d), [PETR](https://github.com/megvii-research/PETR), [BEVFormer](https://github.com/fundamentalvision/BEVFormer), [SOLOFusion](https://github.com/Divadi/SOLOFusion), Sparse4D(https://github.com/linxuewu/Sparse4D).
+* 3D Detection. [MMDetection3d](https://github.com/open-mmlab/mmdetection3d), [DETR3D](https://github.com/WangYueFt/detr3d), [PETR](https://github.com/megvii-research/PETR), [BEVFormer](https://github.com/fundamentalvision/BEVFormer), [SOLOFusion](https://github.com/Divadi/SOLOFusion), [Sparse4D](https://github.com/linxuewu/Sparse4D).
 * Multi-object tracking. [MOTR](https://github.com/megvii-research/MOTR), [PF-Track](https://github.com/TRI-ML/PF-Track).
 
 
