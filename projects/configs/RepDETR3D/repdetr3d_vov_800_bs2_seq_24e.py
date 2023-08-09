@@ -106,7 +106,7 @@ model = dict(
                         ],
                     feedforward_channels=2048,
                     ffn_dropout=0.1,
-                    with_cp=False,  ###use checkpoint to save memory
+                    with_cp=True,  ###use checkpoint to save memory
                     operation_order=('self_attn', 'norm', 'cross_attn', 'norm',
                                      'ffn', 'norm')),
             )),
@@ -226,7 +226,7 @@ optimizer = dict(
     lr=4e-4, # bs 8: 2e-4 || bs 16: 4e-4
     paramwise_cfg=dict(
         custom_keys={
-            'img_backbone': dict(lr_mult=0.25), # set to 0.1 always better when apply 2D pretrained.
+            'img_backbone': dict(lr_mult=0.1), # set to 0.1 always better when apply 2D pretrained.
         }),
     weight_decay=0.01)
 
