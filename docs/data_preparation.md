@@ -12,7 +12,7 @@ We modify data preparation in `MMDetection3D`, which addtionally creates 2D anno
 python tools/create_data_nusc.py --root-path ./data/nuscenes --out-dir ./data/nuscenes --extra-tag nuscenes2d --version v1.0
 ```
 
-Using the above code will generate `nuscenes2d_infos_temporal_{train,val}.pkl`.
+Using the above code will generate `nuscenes2d_temporal_infos_{train,val}.pkl`.
 We also privided the processed [train](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_train.pkl), [val](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_val.pkl) and [test](https://github.com/exiawsh/storage/releases/download/v1.0/nuscenes2d_temporal_infos_test.pkl) pkl.
 
 ## Pretrained Weights
