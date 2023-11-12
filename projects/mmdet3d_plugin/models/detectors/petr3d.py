@@ -9,7 +9,6 @@
 # ------------------------------------------------------------------------
 #  Modified by Shihao Wang
 # ------------------------------------------------------------------------
-from pickle import NONE
 import torch
 from mmcv.runner import force_fp32, auto_fp16
 from mmdet.models import DETECTORS
@@ -254,7 +253,7 @@ class Petr3D(MVXTwoStageDetector):
         """
         if self.test_flag:
             self.pts_bbox_head.reset_memory()
-            
+
         T = data['img'].size(1)
 
         prev_img = data['img'][:, :-self.num_frame_backbone_grads]
