@@ -59,7 +59,7 @@ class RepDetr3D(MVXTwoStageDetector):
         self.stride = stride
         self.position_level = position_level
         self.aux_2d_only = aux_2d_only
-        self.test_flag = None
+        self.test_flag = False
    
 
     def extract_img_feat(self, img, len_queue=1, training_mode=False):
@@ -248,9 +248,10 @@ class RepDetr3D(MVXTwoStageDetector):
         Returns:
             dict: Losses of different branches.
         """
-        if self.test_flag:
+        if self.test_flag: #for interval evaluation
             self.pts_bbox_head.reset_memory()
-            
+            self.test_flag = False
+
         T = data['img'].size(1)
 
         prev_img = data['img'][:, :-self.num_frame_backbone_grads]
