@@ -59,7 +59,8 @@ class RepDetr3D(MVXTwoStageDetector):
         self.stride = stride
         self.position_level = position_level
         self.aux_2d_only = aux_2d_only
-
+        self.test_flag = None
+   
 
     def extract_img_feat(self, img, len_queue=1, training_mode=False):
         """Extract features of images."""
@@ -247,6 +248,9 @@ class RepDetr3D(MVXTwoStageDetector):
         Returns:
             dict: Losses of different branches.
         """
+        if self.test_flag:
+            self.pts_bbox_head.reset_memory()
+            
         T = data['img'].size(1)
 
         prev_img = data['img'][:, :-self.num_frame_backbone_grads]
@@ -270,6 +274,7 @@ class RepDetr3D(MVXTwoStageDetector):
   
   
     def forward_test(self, img_metas, rescale, **data):
+        self.test_flag = True
         for var, name in [(img_metas, 'img_metas')]:
             if not isinstance(var, list):
                 raise TypeError('{} must be a list, but got {}'.format(
