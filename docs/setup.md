@@ -40,7 +40,7 @@ git clone https://github.com/exiawsh/StreamPETR
 
 **e. Install mmdet3d.**
 ```shell
-pip install mmcv-full==1.6.0
+pip install mmcv-full==1.6.0 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.9.0/index.html
 pip install mmdet==2.28.2
 pip install mmsegmentation==0.30.0
 cd ./StreamPETR
