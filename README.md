@@ -63,7 +63,7 @@ The detailed results can be found in the training log. For other results on nuSc
 - [x] Checkpoints
 - [x] Sliding window training
 - [x] Efficient training in streaming video
-- [ ] TensorRT inference
+- [x] [TensorRT inference](https://github.com/NVIDIA/DL4AGX/tree/master/AV-Solutions/streampetr-trt)
 - [x] 3D object tracking
 
 ## Acknowledgements
